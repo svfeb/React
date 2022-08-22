@@ -1,7 +1,9 @@
 
-import {Header,Element} from './components/Header';
+import {Header,Element,DigitalClock} from './components/Header';
 import {Clock,ClassHeader} from './components/ClassHeader';
 import Channel from './components/Channel';
+import {Access,LoginButton,LogoutButton} from "./components/Cond"
+import FunctionClick from './components/FunctionClick';
 
 export function App(){
   return ( <div>
@@ -13,9 +15,16 @@ export function App(){
     <Header name = "Punnet" lastName="" />
     <ClassHeader name = "sv">
       <p>hi</p>
-    </ClassHeader>
-      <Clock/>
+    </ClassHeader> 
+    <Clock/>
     <Element />
     <Channel/>
+    <Access isLoggedIn = {true}/>
+    <LoginButton/>
+    <LogoutButton/> 
+    <FunctionClick/>
+    <DigitalClock/>
+
   </div>)
 }
+

@@ -1,5 +1,4 @@
-import React from 'react';
-// import ReactDOM from 'react-dom/client';
+import { useState,useEffect} from 'react';
 
 export function Header(props){
     
@@ -28,16 +27,19 @@ export function Element (){
       Hello, {formatName(user)}!
     </h1>
   )};
-//   const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// export function Tick(){
-//     const element = (
+export function DigitalClock(){
+    const [date,setDate] = useState(new Date()); 
 
-//     <div>    
-//       <h2>{new Date().toLocaleTimeString()}</h2>
-//     </div>
-//     )
-//     root.render(element)
+    function tick(){
+      setDate(new Date());
+  }
+    useEffect(()=>{
+      const timerId = setInterval(tick,1000)
+      return () => clearInterval(timerId);  
+    },[])
   
-//   }
-// setInterval(Tick,1000)
+    return (<span>{date.toLocaleTimeString()}</span>)
+
+
+  }
